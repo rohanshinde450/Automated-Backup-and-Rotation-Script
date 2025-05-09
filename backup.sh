@@ -15,7 +15,7 @@ RETENTION_WEEKS=4  # To keeping the number of weekly backups.
 RETENTION_MONTHS=3 # To keeping the number of monthly backups.
 
 LOG_FILE="$DIRECTORY_OF_BACKUP/backup.log"
-WEBHOOK_URL="https://webhook.site/a5d27956-9dbc-4381-9af4-f844032beb07" # Just copy Webhook URL from Webhoook.site for notifications
+WEBHOOK_URL="https://webhook.site/c37f01f5-b6ac-431f-b71c-a5839e63960c" # Just copy Webhook URL from Webhoook.site for notifications
 
 #It is curl status which is enabled by default.
 CURL_STATUS_ENABLED=${3:-true}
