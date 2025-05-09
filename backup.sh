@@ -1,8 +1,7 @@
-
 #!/bin/bash
 
 # Variables
-GITHUB_REPOSITORY="https://github.com/RomilMovaliya/DemoPractical.git"
+GITHUB_REPOSITORY="https://github.com/rohanshinde450/Automated-Backup-and-Rotation-Script.git"
 
 DIRECTORY_OF_PROJECT="$1" # that shows Project directory path (Here We Passed as an argument)
 
