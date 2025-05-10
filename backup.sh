@@ -3,9 +3,9 @@
 # Variables
 GITHUB_REPOSITORY="https://github.com/rohanshinde450/Automated-Backup-and-Rotation-Script.git"
 
-DIRECTORY_OF_PROJECT="$1" # that shows Project directory path (Here We Passed as an argument)
+DIRECTORY_OF_PROJECT="/home/rohan/automate" # that shows Project directory path (Here We Passed as an argument)
 
-DIRECTORY_OF_BACKUP="$2"  # that shows Backup directory path (This is a directory Where backups will be stored)
+DIRECTORY_OF_BACKUP="/home/rohan/backup"  # that shows Backup directory path (This is a directory Where backups will be stored)
 
 NAME_OF_THE_BACKUP="backup_$(date +'%Y-%m-%d_%H-%M-%S').zip" #Here backup name start like "backup_" with date in yyyy-mm-dd hour-minute-second and with.zip extension
 
@@ -32,8 +32,8 @@ zip -r "$DIRECTORY_OF_BACKUP/$NAME_OF_THE_BACKUP" "$DIRECTORY_OF_PROJECT"
 # when our backup file is created then it print the Log of backup and store it in logfile.
 echo "$(date): Created backup $NAME_OF_THE_BACKUP" >> "$LOG_FILE"
 
-# Here we are Integrating with Google Drive 
-GDRIVE_REMOTE="gdrive" # It is Name of rclone remote 
+# Here we are Integrating with Google Drive
+GDRIVE_REMOTE="gdrive" # It is Name of rclone remote
 GDRIVE_FOLDER="BackupFolder"  # It is Name of google drive folder
 
 # Push the backup to Google Drive
@@ -46,7 +46,7 @@ echo "$(date): Uploaded backup $NAME_OF_THE_BACKUP to Google Drive" >> "$LOG_FIL
 rotate_backups() {
     # It Delete backups older than 'x' days
     find "$DIRECTORY_OF_BACKUP" -type f -name "*.zip" -mtime +$RETENTION_DAYS -exec rm {} \;
-    
+
     # It Keeps last 4 weekly backups (e.g., last 4 Sundays)
     find "$DIRECTORY_OF_BACKUP" -type f -name "*.zip" -exec bash -c '(( $(date -d $(basename {} .zip | cut -d"_" -f2) +%u) == 7 ))' \;
 
