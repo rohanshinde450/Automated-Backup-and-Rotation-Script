@@ -33,7 +33,7 @@ zip -r "$DIRECTORY_OF_BACKUP/$NAME_OF_THE_BACKUP" "$DIRECTORY_OF_PROJECT"
 echo "$(date): Created backup $NAME_OF_THE_BACKUP" >> "$LOG_FILE"
 
 # Here we are Integrating with Google Drive 
-GDRIVE_REMOTE="gdrive_backup" # It is Name of rclone remote 
+GDRIVE_REMOTE="gdrive" # It is Name of rclone remote 
 GDRIVE_FOLDER="BackupFolder"  # It is Name of google drive folder
 
 # Push the backup to Google Drive
@@ -62,7 +62,7 @@ rotate_backups
 
 curl_status_func(){
 curl -X POST -H "Content-Type: application/json" \
-    -d '{"project": "'"ROMILBHAI'S PROJECT"'", "date": "'"$(date)"'", "test": "BackupSuccessful"}' \
+    -d '{"project": "'"ROHAN'S PROJECT"'", "date": "'"$(date)"'", "test": "BackupSuccessful"}' \
     "$WEBHOOK_URL"
 }
 
